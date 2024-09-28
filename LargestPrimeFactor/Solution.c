@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-
 //--------------------------------------------------
 
 //Function to add all factors (from 1 to sqrt(given_number)) to an array (a 0 will be added if a given number isn't a factor)
@@ -172,3 +171,5 @@ int main() {
 	printf("Largest Prime Factor: %d\n", largest_prime_divisor);
 
 }
+
+//--------------------------------------------------
