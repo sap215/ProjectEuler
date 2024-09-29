@@ -107,17 +107,17 @@ void keep_primes(long long int given_number, int sqrt_given_number, int Factors[
                         	b_is_prime = 0;
 			}
 			
-			if ((a_is_prime == 1) && (b_is_prime == 0)) {
+			if (a_is_prime && !b_is_prime) {
 				Factors[Index] = a;
-			} else if ((a_is_prime == 0) && (b_is_prime == 1)) {
+			} else if (!a_is_prime && b_is_prime) {
                                 Factors[Index] = b;
-                        } else if ((a_is_prime == 1) && (b_is_prime == 1)) {
+                        } else if (a_is_prime && b_is_prime) {
 				if (a > b) {
 					Factors[Index] = a;
 				} else {
 					Factors[Index] = b;
 				}
-                        } else if ((a_is_prime == 0) && (b_is_prime == 0)) { 
+                        } else if (!a_is_prime && !b_is_prime) { 
 				Factors[Index] = 0;
 			}
 		}
