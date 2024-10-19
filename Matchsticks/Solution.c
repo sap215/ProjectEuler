@@ -5,44 +5,61 @@
 #include <stdlib.h>
 #inclued <math.h>
 
+typedef struct {
+	int value;
+} Struct;
+
+Struct digitValues[10] = {
+	{6}, {2}, {5}, {5}, {4}, {5}, {6}, {3}, {7}, {6}
+};
+
 //------------------------------------------------------------------
 
-//Function to count the number of digits in a number
-int countDigits(int number) {
+//Function to compute the digit form value for a given number
+int digit_form(int number) {
 
+	//Get the digits within the number
+	int temp = number;
 	int num_digits = 0;
+	if (temp == 0) {
+		num_digits = 1;
+	} else {
+		while(temp > 0) {
+			temp /= 10'
+			num_digits++;
+		}
+	}
+	int *digits = (int *)malloc(num_digits * sizeof(int));
+	temp = number;
+	for (int i = num_digits -1; i >= 0; i--) {
+		digits[i] = temp % 10;
+		temp /= 10;
+	}
 
-	if (number == 0) {
-		return 1;
+	//Sum up the values of all of the digits
+	int sum = 0;
+	int digit;
+	for (int i = 0; i < num_digits; i++) {
+		digit = digits[i];
+		sum += digitValues[digit];
 	}
 	
-	while (number != 0) {
-		number /= 10;
-		num_digits += 1;
-	} 
-
-	return num_digits;
-
-}
+	//Return the digit form value
+	return sum; 
 
 //------------------------------------------------------------------
 
-//Function to store the digits from a number into an array (with length equal to the number of digits in the number)
-int storeDigitsInArray(int number, int digits[], int num_digits) {
+//Function to find the lowest multiplication value for a given number
+int multiplication_form(int number) {
 
-	for(int i = 0; i < num_digits; i++) {
-		int divisor = pow(10, num_digits - i - 1);
-		digits[i] = number / divisor;
-		mumber %= divisor;
+	int lowest_number = number;
+	int sum;
+	int divisor;
+	for(int i = 1; i <= sqrt(number); i++) {
+		if ((number % i) == 0) {
+			divisor = number / i;
+			sum = 
 	}
-}
-
-
-//------------------------------------------------------------------
-
-//Function to compute and return the lowest value from all multiplicative representations for a given number
-int multiplicativeRepresentation() {
-
 
 	return lowest_number;
 
@@ -50,8 +67,8 @@ int multiplicativeRepresentation() {
 
 //------------------------------------------------------------------
 
-//Function to compute and return the lowest value from all additive representations for a given number
-int additiveRepresentation() {
+//Function to find the lowest additive value for a given number 
+int additive_form(int number) {
 
 
 
@@ -62,19 +79,27 @@ int additiveRepresentation() {
 
 //------------------------------------------------------------------
 
-//Function to compute number for digit representation and compare with other values, and returns the sum, T(N)
-int fewestMatchsticks(int number) {
-
-	int total_number = 0;
-	int matchstick_number;
-
-	for (int i = 0; i <= number; i++) {
-		
+//Function to compute lowest value for a given number (either through mult., add., or digit form)
+int fewest_matchsticks(int number) {
 
 
 
+	return lowest_number;
 
-	}
+}
+
+//------------------------------------------------------------------
+
+//Function to sum the lowest values for each number less <= a given number
+int sum(int number) {
+
+	sum = 0;
+
+
+
+
+
+	return sum;
 
 }
 
